@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 专注赛场信息与可信服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafafa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.75;
+            color: #1e1e1e;
+            padding: 2rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.03), 0 4px 12px rgba(0, 0, 0, 0.02);
+            padding: 2.5rem 2rem 3rem;
+            transition: box-shadow 0.25s ease;
+        }
+
+        @media (max-width: 540px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .page {
+                padding: 1.75rem 1.25rem 2.25rem;
+                border-radius: 20px;
+            }
+        }
+
+        /* typography hierarchy */
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #9e9e9e;
+            border: 1px solid #eaeaea;
+            border-radius: 40px;
+            padding: 0.2rem 0.9rem;
+            margin-bottom: 1.4rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 590;
+            letter-spacing: -0.015em;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            color: #111;
+        }
+
+        h1 small {
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: #5a5a5a;
+            display: block;
+            margin-top: 0.3rem;
+        }
+
+        .intro-p {
+            font-size: 1rem;
+            color: #2c2c2c;
+            margin-bottom: 2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 560;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            color: #181818;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            padding: 0.4rem 0;
+        }
+
+        .feature-marker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.8rem;
+            height: 1.8rem;
+            background: #f2f2f2;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            color: #1d1d1d;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-text strong {
+            font-weight: 560;
+            color: #0f0f0f;
+        }
+
+        .feature-text p {
+            font-size: 0.94rem;
+            color: #3d3d3d;
+            margin-top: 0.2rem;
+        }
+
+        .context-note {
+            background: #f8f8f8;
+            border-radius: 18px;
+            padding: 1.4rem 1.5rem;
+            margin: 2rem 0 1.6rem;
+            font-size: 0.96rem;
+            color: #2b2b2b;
+            border-left: 4px solid #d0d0d0;
+        }
+
+        .context-note a {
+            color: #0f172a;
+            text-decoration: underline;
+            text-decoration-thickness: 1.5px;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .context-note a:hover {
+            color: #3b3b3b;
+            text-decoration-color: #7b7b7b;
+        }
+
+        .faq-block {
+            margin-top: 2.2rem;
+            border-top: 1px solid #ececec;
+            padding-top: 1.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.1rem;
+        }
+
+        .faq-q {
+            font-weight: 520;
+            font-size: 1rem;
+            color: #111;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            font-size: 0.94rem;
+            color: #4a4a4a;
+            padding-left: 0.2rem;
+        }
+
+        .closing {
+            margin-top: 2.5rem;
+            font-size: 0.95rem;
+            color: #5b5b5b;
+            line-height: 1.65;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 1.8rem;
+        }
+
+        .closing a {
+            color: #1e1e1e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .closing a:hover {
+            color: #4f4f4f;
+        }
+
+        .small-meta {
+            display: block;
+            margin-top: 2.4rem;
+            font-size: 0.75rem;
+            color: #a8a8a8;
+            letter-spacing: 0.02em;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eaeaea;
+            margin: 1.8rem 0 0.8rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <span class="hero-tag">运动 · 信息 · 连接</span>
+    <h1>
+        从赛场到屏幕
+        <small>关于 MK体育 的简要介绍</small>
+    </h1>
+
+    <p class="intro-p">
+        在信息繁杂的体育领域，一个站点能否提供清晰、持续的内容聚合，往往决定了用户获取体验的优劣。<br>
+        <a href="https://m-portal-mksports.com" style="text-decoration: underline; text-underline-offset: 3px; font-weight: 500; color: #1e1e1e;">MK体育</a> 正是围绕这一需求搭建的信息节点——将赛事动态、基础数据与实用工具整合在同一界面，减少跳转成本，提升查阅效率。
+    </p>
+
+    <h2>平台特征简述</h2>
+    <div class="feature-grid">
+        <div class="feature-item">
+            <span class="feature-marker">1</span>
+            <div class="feature-text">
+                <strong>模块化内容结构</strong>
+                <p>页面以功能区隔划分，涵盖赛事预览、队伍对比、近期结果与常见索引，便于快速定位关注点。</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <span class="feature-marker">2</span>
+            <div class="feature-text">
+                <strong>多维度信息聚合</strong>
+                <p>并非单一比分或新闻列表，而是将联赛日程、数据参考与补充说明集中呈现，减少跨平台查找的碎片感。</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <span class="feature-marker">3</span>
+            <div class="feature-text">
+                <strong>持续迭代的界面逻辑</strong>
+                <p>布局与交互细节根据使用反馈逐步调整，不追求繁复特效，优先保证信息可读性与操作一致性。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-note">
+        <span style="font-weight: 500;">适用场景举例</span><br>
+        日常快速浏览联赛走势、赛前查阅对阵记录、赛后回顾关键数据——<a href="https://m-portal-mksports.com">MK体育</a> 在这些环节中充当一个相对简洁的起点。站点保持较低的信息噪点，不同版块之间通过导航与列表建立关联，降低理解成本。
+    </div>
+
+    <h2>关于可信度与边界</h2>
+    <p style="font-size: 0.96rem; color: #3a3a3a; margin-bottom: 0.8rem;">
+        任何一个体育信息平台都需要面对数据来源与更新频率的挑战。当前站点以公开信息整合为基础，不提供任何形式的投注、预测或保证性结论。所有内容仅供用户参考，实际赛况请以官方渠道为准。
+    </p>
+
+    <div class="faq-block">
+        <div class="faq-item">
+            <div class="faq-q">Q：这个站点主要覆盖哪些运动项目？</div>
+            <div class="faq-a">目前以足球、篮球等主流联赛为主，辅以部分赛事的基础统计数据，范围会随内容整理逐步扩展。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：信息更新频率如何？</div>
+            <div class="faq-a">联赛进行期间通常保持每日同步，休赛期或低密度赛程阶段更新节奏相对放缓，但结构保持稳定。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：是否提供历史赛季深度数据？</div>
+            <div class="faq-a">平台侧重近期与当季内容，历史数据仅保留关键指标，深度回溯建议配合其他专业统计工具使用。</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="closing">
+        总的来说，<a href="https://m-portal-mksports.com">MK体育</a> 更倾向于扮演一个有条理的“信息中转站”——不夸大自身功能，而是尝试把分散的体育内容以相对干净的方式重新组织。如果你恰好需要这样一个入口，不妨花几分钟熟悉它的结构。
+    </div>
+
+    <span class="small-meta">—— 简洁、克制、持续整理 · 体育信息参考</span>
+</div>
+</body>
+</html>
